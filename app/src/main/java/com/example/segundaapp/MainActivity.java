@@ -1,8 +1,10 @@
 package com.example.segundaapp;
+
 import android.app.AlertDialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -48,7 +50,9 @@ public class MainActivity extends AppCompatActivity {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_launcher_foreground)
                 .setContentTitle("Notificación")
-                .setContentText("Esta es una notificación simple.")
+                .setContentText("Esta es una notificación con una imagen.")
+                .setStyle(new NotificationCompat.BigPictureStyle()
+                        .bigPicture(BitmapFactory.decodeResource(getResources(), R.drawable.your_image))) // Reemplaza con tu imagen
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
         notificationManager.notify(1, builder.build());
@@ -83,4 +87,3 @@ public class MainActivity extends AppCompatActivity {
         dialog.show();
     }
 }
-
